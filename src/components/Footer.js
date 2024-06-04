@@ -39,7 +39,7 @@ const Footer = () => {
                     <h3>Follow us</h3>
                     <div className="footer-social--icons">
                         <div><a href="https://github.com/PiyushSinghal01" target='_blank'><FaGit className="icons"></FaGit></a></div>
-                        <div><a href="https://www.instagram.com/the_piyush_singhal" target='_blank'></a><FaInstagram className="icons"></FaInstagram></div>
+                        <div><a href="https://www.instagram.com/the_piyush_singhal" target='_blank'><FaInstagram className="icons"></FaInstagram></a></div>
                         <div><a href="https://www.linkedin.com/in/piyush0809" target='_blank'><FaLinkedin className="icons"></FaLinkedin></a></div>
                     </div>
                 </div>
