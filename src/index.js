@@ -1,22 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { AppProvider } from './context/ProductContext';
-import FilterContextProvider from './context/FilterContext';
-import { CartProvider } from './context/CartContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { AppProvider } from "./context/ProductContext";
+import FilterContextProvider from "./context/FilterContext";
+import { CartProvider } from "./context/CartContext";
+import {Auth0Provider} from "@auth0/auth0-react"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AppProvider>
-      <FilterContextProvider>
-        <CartProvider>
-          <App /> 
-        </CartProvider>
-      </FilterContextProvider>
-    </AppProvider>
+    <Auth0Provider
+      domain="dev-zzkuzifmwmqeah21.us.auth0.com"
+      clientId="nigcG9vYycaVFYMVuoIiLOAFyjDBXWgw"
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <AppProvider>
+        <FilterContextProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterContextProvider>
+      </AppProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 
