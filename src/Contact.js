@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Contact = () => {
+
+  const { isAuthenticated, user } = useAuth0();
 
   const Wrapper = styled.section`
     padding: 9rem 0 5rem 0;
@@ -51,8 +54,8 @@ const Contact = () => {
       <div className="container">
         <div className="contact-form">
           <form action="https://formspree.io/f/xdoqpbgr" method="POST" className="contact-inputs">
-            <input type="text" name="username" placeholder="username" required autoComplete="off" />
-            <input type="email" name="Email" placeholder="Email" required  autoComplete="off" />
+            <input type="text" name="username" placeholder="username" required autoComplete="off" value={isAuthenticated? user.name : ""} />
+            <input type="email" name="Email" placeholder="Email" required  autoComplete="off" value={isAuthenticated? user.email : ""} />
             <textarea name="message" placeholder="Enter your message" cols="30" rows="10" autoComplete="off" ></textarea>
             <input type="submit" value="Send" />
           </form>
