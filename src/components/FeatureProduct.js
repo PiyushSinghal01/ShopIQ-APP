@@ -2,12 +2,13 @@ import React from "react";
 import { useProductContext } from "../context/ProductContext";
 import styled from 'styled-components';
 import Product from "./Product";
+import { ThreeDots } from "react-loader-spinner";
 
 const FeatureProduct = () => {
   const {isLoading, featureProducts} = useProductContext();
 
   if (isLoading) {
-    return <h1>........Loading</h1>;
+    return <div style={{position : "absolute", left: "50%", transform: "translate(-50%, 0)"}}><ThreeDots height={80} width={80} color="black"></ThreeDots></div>;
   }
   
   return (
@@ -77,6 +78,12 @@ const Wrapper = styled.section`
       padding: 0.8rem 2rem;
       font-size: 1.2rem;
       border-radius: 2rem;
+    }
+
+    .loading{
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, 0);
     }
   }
 
